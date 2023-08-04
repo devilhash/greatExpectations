@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Data Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSV Data Table</h1>
+    <table>
+        <tr>
+            {% for header in data[0].keys() %}
+                <th>{{ header }}</th>
+            {% endfor %}
+        </tr>
+        {% for row in data %}
+            <tr>
+                {% for value in row.values() %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <p></p>
+    <form method="post">
+        <label for="Dataset">Dataset</label>
+        <input type="text" id="dataset" name="dataset" required><br>
+        <div class="spacer"></div>
+        <label for="Expectation">Expectation</label>
+        <input type="text" id="expectation" name="expectation" required><br>
+         
+        <label for="Column">Column</label>
+        <input type="text" id="column" name="column" required><br>
+        <p></p>
+        <button type="submit">execute</button>
+    </form>
+</body>
+</html>

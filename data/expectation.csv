@@ -1,0 +1,4 @@
+dataset,expectation,column
+test2,not_null,name
+avocado,not_null,region
+test2,is_exist,age
